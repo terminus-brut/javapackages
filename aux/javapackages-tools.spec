@@ -129,11 +129,8 @@ This package provides non-essential macros and scripts to support Java packaging
 %prep
 %setup -q -n %{pkg_name}-%{version}
 
-# Add SCL namespace to generated provides
-%{?scl: sed -i '/<groupId>/{h;s|<.*|<namespace>%{scl}</namespace>|;p;g}' etc/javapackages-metadata.xml}
-
 %build
-sh -x %configure --pyinterpreter=%{python_interpreter}
+%configure --pyinterpreter=%{python_interpreter} %{?scl:--scl=%{scl} --scl_root=%{_scl_root}}
 ./build
 
 %install
@@ -142,9 +139,11 @@ sh -x %configure --pyinterpreter=%{python_interpreter}
 sed -i 's|mvn_build.py|& --xmvn-javadoc|' $(find %{buildroot} -name macros.fjava)
 sed -e 's/.[17]$/&.gz/' -e 's/.py$/&*/' -i files-*
 
-%if 0%{?fedora}
-sed -i 's:${rpmconfigdir}/macros.d:%{!?scl:%{_sysconfdir}}%{?scl:%{_root_sysconfdir}}/rpm:' install
-%endif
+%{?scl:
+  mv %{buildroot}%{_root_sysconfdir}/rpm/macros{,.zzz.%{scl}}.fjava
+  mv %{buildroot}%{_root_sysconfdir}/rpm/macros{,.zzz.%{scl}}.jpackage
+  sed -i 's:\(macros.\)\(fjava\|jpackage\|xmvn\):\1zzz.%{scl}.\2:' files-*
+}
 
 %if %{without gradle}
 rm -rf %{buildroot}%{_bindir}/gradle-local

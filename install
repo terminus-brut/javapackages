@@ -112,6 +112,7 @@ inst_config target/java.conf "${javaconfdir}"
 
 inst_data target/java-functions "${javadir}-utils"
 inst_exec java-utils/java-wrapper "${javadir}-utils"
+[[ -n "${scl}" ]] && inst_exec java-utils/scl-enable "${javadir}-utils"
 
 inst_data target/macros.jpackage "${rpmconfigdir}/macros.d"
 
@@ -123,7 +124,7 @@ inst_data target/shade-jar.1 "${mandir}/man1"
 inst_data target/abs2rel.1 "${mandir}/man1"
 inst_data target/find-jar.1 "${mandir}/man1"
 
-inst_data etc/javapackages-metadata.xml "${datadir}/maven-metadata"
+inst_data target/javapackages-metadata.xml "${datadir}/maven-metadata"
 
 if [ -z "$pyinterpreter" ]; then
     exit 0
@@ -179,9 +180,10 @@ inst_data depgenerators/fileattrs/maven.attr "${rpmconfigdir}/fileattrs"
 inst_data depgenerators/fileattrs/osgi.attr "${rpmconfigdir}/fileattrs"
 inst_data depgenerators/fileattrs/javadoc.attr "${rpmconfigdir}/fileattrs"
 
-inst_data configs/configuration.xml "${m2home}"
+inst_data target/configuration.xml "${m2home}"
 
-inst_config etc/javapackages-config.json "${javaconfdir}"
+inst_config target/javapackages-config.json "${javaconfdir}"
+
 
 exec >files-maven
 
