@@ -298,7 +298,8 @@ class TestMavenReq(unittest.TestCase):
     def test_grandparent(self, stdout, stderr, return_value):
         self.assertEqual(return_value, 0, stderr)
         sout = [x for x in stdout.split('\n') if x]
-        want = ("java-headless", "javapackages-tools")
+        want = ("rh-java-common-mvn(org.apache.lucene:lucene-solr-grandparent:pom:5.4.1) = 5.4.1",
+                "java-headless", "javapackages-tools")
         self.assertEqual(set(want), set(sout))
 
 if __name__ == '__main__':
