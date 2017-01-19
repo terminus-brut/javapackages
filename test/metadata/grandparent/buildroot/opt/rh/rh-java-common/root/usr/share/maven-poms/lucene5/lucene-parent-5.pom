@@ -1,0 +1,10 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.apache.lucene</groupId>
+    <artifactId>lucene-solr-grandparent</artifactId>
+    <version>5.4.1</version>
+  </parent>
+  <artifactId>lucene-parent</artifactId>
+  <packaging>pom</packaging>
+</project>

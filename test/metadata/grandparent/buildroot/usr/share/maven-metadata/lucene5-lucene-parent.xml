@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://fedorahosted.org/xmvn/METADATA/2.0.0">
+  <uuid>b05e4d2d-96e0-4f0e-8adc-4c1d48626a59</uuid>
+  <artifacts>
+    <artifact>
+      <groupId>org.apache.lucene</groupId>
+      <artifactId>lucene-parent</artifactId>
+      <extension>pom</extension>
+      <version>5.4.1</version>
+      <path>/opt/rh/rh-java-common/root/usr/share/maven-poms/lucene5/lucene-parent-5.pom</path>
+      <namespace>rh-java-common</namespace>
+      <uuid>b10ce3fb-7452-46c4-ac7e-5b718f142625</uuid>
+      <properties>
+        <type>pom</type>
+      </properties>
+      <compatVersions>
+        <version>5</version>
+        <version>5.4.1</version>
+      </compatVersions>
+    </artifact>
+  </artifacts>
+</metadata>

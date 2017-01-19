@@ -8,7 +8,7 @@ config.status
 files-*
 
 target/
-root/
+/root/
 python/build/
 python/javapackages.egg-info/
 python/javapackages/version.py

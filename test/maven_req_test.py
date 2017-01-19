@@ -293,5 +293,12 @@ class TestMavenReq(unittest.TestCase):
         want = ("java-headless", "javapackages-tools")
         self.assertEqual(set(want), set(sout))
 
+    @mavenreq(["grandparent/buildroot/usr/share/maven-metadata/lucene5-lucene-parent.xml"])
+    def test_grandparent(self, stdout, stderr, return_value):
+        self.assertEqual(return_value, 0, stderr)
+        sout = [x for x in stdout.split('\n') if x]
+        want = ("java-headless", "javapackages-tools")
+        self.assertEqual(set(want), set(sout))
+
 if __name__ == '__main__':
     unittest.main()
