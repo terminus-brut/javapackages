@@ -46,6 +46,8 @@ Requires:       findutils
 Requires:       which
 Requires:       lua
 
+Obsoletes:      %{?scl_prefix}eclipse-filesystem < 2
+Provides:       %{?scl_prefix}eclipse-filesystem = %{version}-%{release}
 Provides:       %{?scl_prefix}jpackage-utils = %{version}-%{release}
 # These could be generated automatically, but then we would need to
 # depend on javapackages-local for dependency generator.
