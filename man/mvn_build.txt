@@ -73,6 +73,12 @@ ENVIRONMENT
     behavior is mostly useful when bootstrapping new packages, which
     dependecies have not yet been packaged.
 
+*--without=tests*::
+	This option added in the *fedpkg* or *mock* tool is equivalent to *-f*.
+
+*--without=javadoc*::
+	This option added in the *fedpkg* or *mock* tool is equivalent to *-j*.
+
 AUTHOR
 ------
 Originally written by Mikolaj Izdebski.
