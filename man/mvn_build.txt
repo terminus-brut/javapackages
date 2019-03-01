@@ -71,7 +71,7 @@ ENVIRONMENT
     ran in offline mode.  Online mode of XMvn allows missing
     dependency artifacts to be fetched from remote repositories.  This
     behavior is mostly useful when bootstrapping new packages, which
-    dependecies have not yet been packaged.
+    dependencies have not yet been packaged.
 
 *--without=tests*::
 	This option added in the *fedpkg* or *mock* tool is equivalent to *-f*.
